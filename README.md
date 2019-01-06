@@ -1,7 +1,7 @@
 # meal-planner
 A Ruby-on-Rails app for managing recipes and periodic shopping lists
 
-[![Build Status](https://travis-ci.org/truggeri/meal-planner.svg?branch=master)](https://travis-ci.org/truggeri/meal-planner)
+[![Build Status](https://travis-ci.org/truggeri/meal-planner.svg?branch=master)](https://travis-ci.org/truggeri/meal-planner) [![Coverage Status](https://coveralls.io/repos/github/truggeri/meal-planner/badge.svg?branch=master)](https://coveralls.io/github/truggeri/meal-planner?branch=master)
 
 ## Overview
 
