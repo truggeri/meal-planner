@@ -1,6 +1,8 @@
 # meal-planner
 A Ruby-on-Rails app for managing recipes and periodic shopping lists
 
+[![Build Status](https://travis-ci.org/truggeri/meal-planner.svg?branch=master)](https://travis-ci.org/truggeri/meal-planner)
+
 ## Overview
 
 This app is a Ruby-on-Rails (RoR) app. The purpose of the app is keep recipes with their ingredients. While there are a number of sites that do this, the idea here is to provide a service that will put together a shopping list and meal plan for the week to minimize the ammount of shopping and prep time. The end result is an app that users will rely on to maximize their time efficiency while cooking at home.
