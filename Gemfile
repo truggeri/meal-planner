@@ -64,3 +64,5 @@ end
 gem 'tzinfo-data', '~> 1.2.5', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'coveralls', require: false
+
+gem 'solargraph', require: false
