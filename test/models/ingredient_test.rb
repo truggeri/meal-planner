@@ -18,14 +18,12 @@ class IngredientTest < ActiveSupport::TestCase
   end
 
   test "name should be shorter than 50 characters" do
-    o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
-    @ingredient.name = (0...51).map { o[rand(o.length)] }.join
+    @ingredient.name = random_characters(51)
     assert_not @ingredient.valid?
   end
 
   test "name can be 50 characters" do
-    o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
-    @ingredient.name = (0...50).map { o[rand(o.length)] }.join
+    @ingredient.name = random_characters(50)
     assert @ingredient.valid?
   end
 
@@ -44,14 +42,12 @@ class IngredientTest < ActiveSupport::TestCase
   end
 
   test "description should be shorter than 200 characters" do
-    o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
-    @ingredient.description = (0...201).map { o[rand(o.length)] }.join
+    @ingredient.description = random_characters(201)
     assert_not @ingredient.valid?
   end
 
   test "description can be 200 characters" do
-    o = [('a'..'z'), ('A'..'Z')].map(&:to_a).flatten
-    @ingredient.description = (0...200).map { o[rand(o.length)] }.join
+    @ingredient.description = random_characters(200)
     assert @ingredient.valid?
   end
 

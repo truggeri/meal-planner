@@ -18,14 +18,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "email should be shorter than 100 characters" do
-    o = [('a'..'z'), ('A'..'Z'), (0..9),].map(&:to_a).flatten
-    @user.email = (0...101).map { o[rand(o.length)] }.join
+    @user.email = random_characters(101)
     assert_not @user.valid?
   end
 
   test "email can be 100 characters" do
-    o = [('a'..'z'), ('A'..'Z'), (0..9),].map(&:to_a).flatten
-    @user.email = (0...100).map { o[rand(o.length)] }.join
+    @user.email = random_characters(100)
     assert @user.valid?
   end
 
@@ -44,14 +42,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "name should be shorter than 50 characters" do
-    o = [('a'..'z'), ('A'..'Z'), (0..9),].map(&:to_a).flatten
-    @user.name = (0...51).map { o[rand(o.length)] }.join
+    @user.name = random_characters(51)
     assert_not @user.valid?
   end
 
   test "name can be 50 characters" do
-    o = [('a'..'z'), ('A'..'Z'), (0..9),].map(&:to_a).flatten
-    @user.name = (0...50).map { o[rand(o.length)] }.join
+    @user.name = random_characters(50)
     assert @user.valid?
   end
 end
