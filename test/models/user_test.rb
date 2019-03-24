@@ -19,8 +19,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(
-      name:   "Tommy Testo",
-      email:  "tommy@testo.net",
+      name:   FFaker::Name.html_safe_name,
+      email:  FFaker::InternetSE.email,
       active: true)
   end
 
@@ -45,8 +45,8 @@ class UserTest < ActiveSupport::TestCase
 
   test "email should be unique" do
     second_user = User.new(
-      name: "Todd Testo",
-      email: "tommy@testo.net",
+      name: FFaker::Name.html_safe_name,
+      email: @user.email,
       active: true)
     @user.save
     assert_not second_user.valid?
