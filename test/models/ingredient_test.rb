@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: ingredients
+#
+#  id          :integer          not null, primary key
+#  description :text(200)        not null
+#  fresh       :boolean          default(FALSE), not null
+#  name        :string(50)       not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'test_helper'
 
 class IngredientTest < ActiveSupport::TestCase
