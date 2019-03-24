@@ -18,6 +18,13 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bootstrap-sass', '3.4.1'
 
+# third-party gems
+gem 'coveralls', require: false
+gem 'devise'
+gem 'factory_bot'
+gem 'ffaker'
+
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -41,6 +48,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 10.0.2', platforms: [:mri, :mingw, :x64_mingw]
+
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -50,6 +59,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'annotate'
+  gem 'solargraph', require: false
 end
 
 group :test do
@@ -62,7 +74,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', '~> 1.2.5', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'coveralls', require: false
-
-gem 'solargraph', require: false

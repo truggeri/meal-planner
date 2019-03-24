@@ -44,6 +44,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    annotate (2.7.4)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 13.0)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -51,6 +54,7 @@ GEM
     autoprefixer-rails (9.5.0)
       execjs
     backport (0.3.0)
+    bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
@@ -87,11 +91,20 @@ GEM
       term-ansicolor
       thor
     crass (1.0.4)
+    devise (4.6.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
     docile (1.3.1)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.8.0)
     execjs (2.7.0)
+    factory_bot (5.0.2)
+      activesupport (>= 4.2.0)
+    ffaker (2.10.0)
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -132,6 +145,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.0)
       mini_portile2 (~> 2.4.0)
+    orm_adapter (0.5.0)
     parallel (1.14.0)
     parser (2.6.2.0)
       ast (~> 2.4.0)
@@ -171,6 +185,9 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.3.0)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -251,6 +268,8 @@ GEM
       unf_ext
     unf_ext (0.0.7.5)
     unicode-display_width (1.5.0)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -267,6 +286,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   bootsnap (>= 1.1.0)
   bootstrap-sass (= 3.4.1)
   byebug (~> 10.0.2)
@@ -274,12 +294,16 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   coveralls
+  devise
+  factory_bot
+  ffaker
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
   rails (~> 5.2.2)
   sass-rails (~> 5.0)
   selenium-webdriver (~> 3.141.0)
+  simplecov
   solargraph
   spring (~> 2.0.2)
   spring-watcher-listen (~> 2.0.0)
