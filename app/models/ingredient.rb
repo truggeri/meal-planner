@@ -8,9 +8,12 @@
 #  name        :string(50)       not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :bigint
 #
 
 class Ingredient < ApplicationRecord
-  validates :name,        presence: true, length: { maximum: 50 }, uniqueness: true
-  validates :description, presence: true, length: { maximum: 200 }
+  belongs_to  :user
+  
+  validates   :name,        presence: true, length: { maximum: 50 }, uniqueness: true
+  validates   :description, presence: true, length: { maximum: 200 }
 end

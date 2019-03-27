@@ -8,6 +8,7 @@
 #  name        :string(50)       not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :bigint
 #
 
 require 'test_helper'
@@ -17,7 +18,9 @@ class IngredientTest < ActiveSupport::TestCase
     @ingredient = Ingredient.new(
       name: "Garlic",
       description: "A single clove of garlic",
-      fresh: true)
+      fresh: true,
+      user: create(:user)
+    )
   end
 
   test "should be valid" do
