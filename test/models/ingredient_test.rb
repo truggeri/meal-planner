@@ -15,12 +15,7 @@ require 'test_helper'
 
 class IngredientTest < ActiveSupport::TestCase
   def setup
-    @ingredient = Ingredient.new(
-      name: "Garlic",
-      description: "A single clove of garlic",
-      fresh: true,
-      user: create(:user)
-    )
+    @ingredient = create(:ingredient)
   end
 
   test "should be valid" do
@@ -43,11 +38,7 @@ class IngredientTest < ActiveSupport::TestCase
   end
 
   test "name should be unique" do
-    second_ingredient = Ingredient.new(
-      name: "Garlic",
-      description: "This shouldn't work",
-      fresh: true)
-    @ingredient.save
+    second_ingredient = build(:ingredient, name: @ingredient.name)
     assert_not second_ingredient.valid?
   end
 

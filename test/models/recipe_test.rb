@@ -15,12 +15,7 @@ require 'test_helper'
 
 class RecipeTest < ActiveSupport::TestCase
   def setup
-    @recipe = Recipe.new(
-      name: "Tuna Noodle Casserole",
-      description: "A delicious casserole of tuna and egg noodles with celeray",
-      minutes_to_make: 40,
-      user: create(:user)
-    )
+    @recipe = create(:recipe)
   end
 
   test "should be valid" do
@@ -43,11 +38,7 @@ class RecipeTest < ActiveSupport::TestCase
   end
 
   test "name should be unique" do
-    second_recipe = Recipe.new(
-      name: "Tuna Noodle Casserole",
-      description: "This shouldn't work",
-      minutes_to_make: 45)
-    @recipe.save
+    second_recipe = build(:recipe, name: @recipe.name)
     assert_not second_recipe.valid?
   end
 
