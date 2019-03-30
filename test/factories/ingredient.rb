@@ -15,7 +15,7 @@ FactoryBot.define do
     factory :ingredient do
       name        { FFaker::Food.ingredient }
       description { FFaker::Lorem.phrase }
-      fresh       { Random.rand(0..1).even? }
+      fresh       { [true, false].sample }
       association :user, factory: :user
     end
   end

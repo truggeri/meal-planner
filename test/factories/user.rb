@@ -15,9 +15,11 @@
 #
 
 FactoryBot.define do
+  USER_ACTIVE_PERCENTAGE = 75
+
   factory :user do
     name   { FFaker::Name.html_safe_name }
     email  { FFaker::Internet.email }
-    active { true }
+    active { Random.rand(0..100) < USER_ACTIVE_PERCENTAGE }
   end
 end

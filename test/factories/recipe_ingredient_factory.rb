@@ -18,8 +18,9 @@
 
 FactoryBot.define do
   factory :recipe_ingredient do
-    amount  { Random.rand(1..500) }
-    measure { RecipeIngredient.measures.keys.sample }
+    amount          { Random.rand(1..500) }
+    measure         { RecipeIngredient.measures.keys.sample }
+    precise_amount  { [true, false].sample }
 
     association :recipe,      factory: :recipe
     association :ingredient,  factory: :ingredient
