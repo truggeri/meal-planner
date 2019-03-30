@@ -16,9 +16,22 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new(permitted_params)
     @ingredient.user = @current_user
     if @ingredient.save
+      flash[:success] = "Ingredient created successfully"
       redirect_to(@ingredient)
     else
       render "new"
+    end
+  end
+
+  def destroy
+    @ingredient = Ingredient.find_by(id: params[:id])
+    name = @ingredient.name
+    if @ingredient.delete
+      flash[:success] = "Ingredient '#{name}' successfully removed"
+      redirect_to(ingredients_path)
+    else
+      flash[:error] = "Ingredient could not be removed"
+      render "index"
     end
   end
 

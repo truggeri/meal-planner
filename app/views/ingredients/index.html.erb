@@ -5,6 +5,7 @@
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Fresh?</th>
+      <th scope="col">&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -12,6 +13,7 @@
       <tr>
         <td><%= link_to(ingredient.name, ingredient_path(ingredient)) %></td>
         <td><% if ingredient.fresh %><i class="fa fa-check">√</i><% end %></td>
+        <td><%= link_to("Delete?", ingredient_path(ingredient), method: :delete) %></td>
       </tr>
     <% end %>
   </tbody>
