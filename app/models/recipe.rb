@@ -17,9 +17,10 @@
 #
 
 class Recipe < ApplicationRecord
-    belongs_to :user
+  has_many    :recipe_ingredient
+  belongs_to  :user
 
-    validates :description,     presence: true, length: { maximum: 500 }
-    validates :minutes_to_make, numericality: { only_integer: true, greater_than: 0, less_than: 1440 }
-    validates :name,            presence: true, length: { maximum: 50 }, uniqueness: true
+  validates :description,     presence: true, length: { maximum: 500 }
+  validates :minutes_to_make, numericality: { only_integer: true, greater_than: 0, less_than: 1440 }
+  validates :name,            presence: true, length: { maximum: 50 }, uniqueness: true
 end

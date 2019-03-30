@@ -12,6 +12,7 @@
 #
 
 class Ingredient < ApplicationRecord
+  has_many    :recipe_ingredient
   belongs_to  :user
   
   validates   :name,        presence: true, length: { maximum: 50 }, uniqueness: true
