@@ -4,11 +4,16 @@
 #
 #  id              :integer          not null, primary key
 #  description     :text(500)        not null
+#  display         :boolean
 #  minutes_to_make :integer
 #  name            :string(50)       not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  user_id         :bigint           not null
+#
+# Indexes
+#
+#  index_recipes_on_display  (display)
 #
 
 require 'test_helper'
