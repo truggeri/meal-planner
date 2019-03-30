@@ -1,0 +1,10 @@
+<%= link_to("Back", ingredients_url) %>
+
+<h1><%= @ingredient.name %></h1>
+
+<p class="descriptive">
+  <% if @ingredient.fresh %>
+    [<span style="font-style: italic;">Fresh</span>]&nbsp;
+  <% end %>
+  <%= @ingredient.description %>
+</p>
