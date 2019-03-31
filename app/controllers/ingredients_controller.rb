@@ -25,14 +25,14 @@ class IngredientsController < ApplicationController
 
   def destroy
     @ingredient = Ingredient.find_by(id: params[:id])
-    name = @ingredient.name
-    if @ingredient.delete
+    name = @ingredient&.name
+    if @ingredient&.delete
       flash[:success] = "Ingredient '#{name}' successfully removed"
-      redirect_to(ingredients_path)
+      
     else
       flash[:error] = "Ingredient could not be removed"
-      render "index"
     end
+    redirect_to(ingredients_path)
   end
 
   private
