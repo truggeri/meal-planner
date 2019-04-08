@@ -12,10 +12,10 @@
 #
 
 FactoryBot.define do
-    factory :ingredient do
-      name        { FFaker::Food.ingredient }
-      description { FFaker::Lorem.phrase }
-      fresh       { [true, false].sample }
-      association :user, factory: :user
-    end
+  factory :ingredient do
+    name        { FFaker::Food.ingredient }
+    description { FFaker::Lorem.phrase }
+    fresh       { [true, false].sample }
+    association :user, factory: :user
   end
+end

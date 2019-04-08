@@ -1,5 +1,4 @@
 class IngredientsController < ApplicationController
-
   def index
     @ingredients = Ingredient.order(:name)
   end
@@ -28,7 +27,6 @@ class IngredientsController < ApplicationController
     name = @ingredient&.name
     if @ingredient&.delete
       flash[:success] = "Ingredient '#{name}' successfully removed"
-      
     else
       flash[:error] = "Ingredient could not be removed"
     end

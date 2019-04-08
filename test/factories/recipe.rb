@@ -17,13 +17,13 @@
 #
 
 FactoryBot.define do
-    RECIPE_DISPLAY_PERCENTAGE = 70
+  RECIPE_DISPLAY_PERCENTAGE = 70
 
-    factory :recipe do
-      description     { FFaker::Lorem.phrase } 
-      display         { Random.rand(1..100) < RECIPE_DISPLAY_PERCENTAGE }
-      minutes_to_make { Random.rand(1..1399) }
-      name            { "#{FFaker::Food.meat} with #{FFaker::Food.vegetable}s" }
-      association     :user, factory: :user
-    end
+  factory :recipe do
+    description     { FFaker::Lorem.phrase }
+    display         { Random.rand(1..100) < RECIPE_DISPLAY_PERCENTAGE }
+    minutes_to_make { Random.rand(1..1399) }
+    name            { "#{FFaker::Food.meat} with #{FFaker::Food.vegetable}s" }
+    association     :user, factory: :user
   end
+end

@@ -23,22 +23,26 @@ class IngredientsControllerTest < ActionDispatch::IntegrationTest
 
   test "should post #create" do
     assert_difference("Ingredient.count", 1) do
-      post ingredients_url params: { ingredient: { 
-                                                    description: FFaker::Lorem.phrase, 
-                                                    fresh: false, 
-                                                    name: FFaker::Food.ingredient } 
-                                  }
+      post ingredients_url params: {
+        ingredient: {
+          description: FFaker::Lorem.phrase,
+          fresh: false,
+          name: FFaker::Food.ingredient
+        }
+      }
       assert_response :redirect
     end
   end
 
   test "should error on #create when ingredient exists" do
     assert_no_difference "Ingredient.count" do
-      post ingredients_url params: { ingredient: { 
-                                                    description: @i.description, 
-                                                    fresh: @i.fresh, 
-                                                    name: @i.name } 
-                                  }
+      post ingredients_url params: {
+        ingredient: {
+          description: @i.description,
+          fresh: @i.fresh,
+          name: @i.name
+        }
+      }
       assert_response :success
     end
   end

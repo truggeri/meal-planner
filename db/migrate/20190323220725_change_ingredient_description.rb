@@ -6,5 +6,5 @@ class ChangeIngredientDescription < ActiveRecord::Migration[5.2]
 
   def down
     # Put here so I could add more functionallity to a single migration
-  end 
+  end
 end
