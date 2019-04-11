@@ -13,7 +13,7 @@
       <tr>
         <td><%= link_to(ingredient.name, ingredient_path(ingredient)) %></td>
         <td><% if ingredient.fresh %><i class="fa fa-check"></i><% end %></td>
-        <td><%= link_to(content_tag(:i, "", class: "fa fa-trash"), ingredient_path(ingredient), method: :delete) %></td>
+        <td><%= link_to(content_tag(:i, "", class: "fa fa-trash text-danger"), ingredient_path(ingredient), method: :delete) %></td>
       </tr>
     <% end %>
   </tbody>
