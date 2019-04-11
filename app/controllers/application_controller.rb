@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_user
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def set_current_user
-    # TODO-truggeri-20190330
-    #   Statically set to only user for now, more to come later
-    @current_user = User.find_by(id: 1)
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 end
