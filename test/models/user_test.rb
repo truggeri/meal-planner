@@ -12,6 +12,7 @@
 #  reset_password_token   :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  account_id             :bigint
 #
 # Indexes
 #
@@ -53,5 +54,16 @@ class UserTest < ActiveSupport::TestCase
   test "name can be 50 characters" do
     @user.name = random_characters(50)
     assert @user.valid?
+  end
+
+  test "primay? when primary" do
+    @user.account.primary_user = @user
+    assert @user.primary?
+  end
+
+  test "primay? when not primary" do
+    user2 = create(:user, :active)
+    @user.account.primary_user = user2
+    assert_not @user.primary?
   end
 end

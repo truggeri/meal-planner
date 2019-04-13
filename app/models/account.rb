@@ -12,8 +12,8 @@
 #
 
 class Account < ApplicationRecord
-  belongs_to :primary_user, foreign_key: :primary_user, class_name: User.name
-  has_many   :users, counter_cache: true
+  belongs_to :primary_user, foreign_key: :primary_user, class_name: User.name, optional: true
+  has_many   :users, dependent: :nullify
 
   validates  :name, presence: true, length: { maximum: 100 }
 end

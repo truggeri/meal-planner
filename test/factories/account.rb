@@ -15,7 +15,5 @@ FactoryBot.define do
   factory :account, class: :account do
     active      { true }
     name        { FFaker::Name.html_safe_name }
-    association :primary_user, factory: :user
-    users_count { 1 } 
   end
 end

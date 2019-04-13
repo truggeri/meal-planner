@@ -23,15 +23,24 @@ class AccountTest < ActiveSupport::TestCase
     @account = create(:account)
   end
 
+  test "name should be shorter than 100 characters" do
+    @account.name = random_characters(101)
+    assert_not @account.valid?
+  end
+
+  test "name can be 100 characters" do
+    @account.name = random_characters(100)
+    assert @account.valid?
+  end
+
   test "assign primary user" do
     @account.primary_user = @user
     assert @account.valid?
   end
 
   test "assign users to an account" do
-    skip "Add association from User to Account"
-    user1 = create(:user, :active, account: @account)
-    user2 = create(:user, :active, account: @account)
+    create(:user, :active, account: @account)
+    create(:user, :active, account: @account)
     assert @account.users_count == 2
   end
 end

@@ -12,6 +12,7 @@
 #  reset_password_token   :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  account_id             :bigint
 #
 # Indexes
 #
@@ -23,6 +24,7 @@ FactoryBot.define do
   USER_ACTIVE_PERCENTAGE = 75
 
   factory :user, class: User do
+    association :account
     active    { Random.rand(0..100) < USER_ACTIVE_PERCENTAGE }
     email     { FFaker::Internet.email }
     name      { FFaker::Name.html_safe_name }
@@ -30,6 +32,6 @@ FactoryBot.define do
 
     trait :active do
       active { true }
-    end  
+    end
   end
 end

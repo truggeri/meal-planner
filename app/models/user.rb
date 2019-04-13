@@ -12,6 +12,7 @@
 #  reset_password_token   :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  account_id             :bigint
 #
 # Indexes
 #
@@ -23,7 +24,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many  :ingredients
+  belongs_to :account, counter_cache: true
+  has_many   :ingredients, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
+
+  def primary?
+    account.primary_user == self
+  end
 end
