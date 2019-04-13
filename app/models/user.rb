@@ -25,7 +25,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :account, counter_cache: true
-  has_many   :ingredients, dependent: :destroy
+  has_many   :ingredients, through: :account
+  has_many   :recipes,     through: :account
 
   validates :name, presence: true, length: { maximum: 50 }
 

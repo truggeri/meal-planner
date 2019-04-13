@@ -13,7 +13,7 @@ class IngredientsController < ApplicationController
 
   def create
     @ingredient = Ingredient.new(permitted_params)
-    @ingredient.user = current_user
+    @ingredient.account = current_user&.account
     if @ingredient.save
       flash[:success] = "Ingredient created successfully"
       redirect_to(@ingredient)

@@ -8,14 +8,14 @@
 #  name        :string(50)       not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :bigint
+#  account_id  :bigint
 #
 
 FactoryBot.define do
   factory :ingredient do
+    account
     name        { FFaker::Food.ingredient }
     description { FFaker::Lorem.phrase }
     fresh       { [true, false].sample }
-    association :user, factory: :user
   end
 end

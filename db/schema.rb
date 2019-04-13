@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_13_222344) do
+ActiveRecord::Schema.define(version: 2019_04_13_232531) do
 
   create_table "accounts", force: :cascade do |t|
     t.boolean "active", default: true, null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_04_13_222344) do
     t.boolean "fresh", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.bigint "account_id"
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
@@ -44,11 +44,11 @@ ActiveRecord::Schema.define(version: 2019_04_13_222344) do
   create_table "recipes", force: :cascade do |t|
     t.string "name", limit: 50, null: false
     t.text "description", limit: 500, null: false
-    t.bigint "user_id", null: false
     t.integer "minutes_to_make"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "display"
+    t.bigint "account_id"
     t.index ["display"], name: "index_recipes_on_display"
   end
 

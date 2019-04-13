@@ -9,7 +9,7 @@
 #  name            :string(50)       not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  user_id         :bigint           not null
+#  account_id      :bigint
 #
 # Indexes
 #
@@ -18,7 +18,7 @@
 
 class Recipe < ApplicationRecord
   has_many    :recipe_ingredient
-  belongs_to  :user
+  belongs_to  :account
 
   validates :description,     presence: true, length: { maximum: 500 }
   validates :minutes_to_make, numericality: { only_integer: true, greater_than: 0, less_than: 1440 }
