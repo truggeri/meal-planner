@@ -27,5 +27,9 @@ FactoryBot.define do
     email     { FFaker::Internet.email }
     name      { FFaker::Name.html_safe_name }
     password  { FFaker::Internet.password }
+
+    trait :active do
+      active { true }
+    end  
   end
 end

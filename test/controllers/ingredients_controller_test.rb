@@ -1,8 +1,12 @@
 require "test_helper"
 
 class IngredientsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   def setup
     @i = create(:ingredient)
+    @user = create(:user, :active)
+    sign_in @user
   end
 
   test "should get #index" do
