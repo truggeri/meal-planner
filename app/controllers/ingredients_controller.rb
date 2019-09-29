@@ -1,10 +1,12 @@
 class IngredientsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @ingredients = Ingredient.order(:name)
+    @ingredients = Ingredient.where(account: current_user.account).order(:name)
   end
 
   def show
-    @ingredient = Ingredient.find_by(id: params[:id])
+    @ingredient = Ingredient.find_by(id: params[:id], account: current_user.account)
   end
 
   def new

@@ -17,9 +17,6 @@ class AccountTest < ActiveSupport::TestCase
   include Devise::Test::IntegrationHelpers
 
   def setup
-    @user = create(:user, :active)
-    sign_in @user
-
     @account = create(:account)
   end
 
@@ -34,7 +31,8 @@ class AccountTest < ActiveSupport::TestCase
   end
 
   test "assign primary user" do
-    @account.primary_user = @user
+    user = create(:user, :active, account: @account)
+    @account.primary_user = user
     assert @account.valid?
   end
 
