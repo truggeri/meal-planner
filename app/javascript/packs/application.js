@@ -21,4 +21,7 @@ import Turbolinks from 'turbolinks';
 Rails.start();
 Turbolinks.start();
 
-import 'bootstrap/dist/js/bootstrap';
+// import 'bootstrap/dist/js/bootstrap';
+
+import 'bootstrap'
+import './src/application.scss'
