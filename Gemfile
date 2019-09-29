@@ -15,7 +15,6 @@ gem "bootsnap", ">= 1.4.5", require: false
 gem "bootstrap", "~> 4.3.1"
 gem "devise"
 gem "jbuilder", "~> 2.5"
-gem "jquery-rails"
 gem "turbolinks", "~> 5"
 
 group :development, :test do
