@@ -37,4 +37,5 @@ end
 group :test do
   gem "factory_bot"
   gem "rubocop"
+  gem "rubocop-performance"
 end
