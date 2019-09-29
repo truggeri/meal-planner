@@ -30,7 +30,6 @@ group :development do
   gem 'annotate'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry'
-  gem 'solargraph', require: false
   gem 'spring', '~> 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
